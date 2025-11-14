@@ -9,25 +9,25 @@ class clienteController
 
     public function __construct($pdo)
     {
-    $this->model = new clienteModel($pdo);
+        $this->model = new clienteModel($pdo);
     }
-    
+
     public function listarClientes()
     {
-    $leerclientes = $this->model->listarClientes();
-                require __DIR__ . '/../views/lista.php';
- }
+        $leerclientes = $this->model->listarClientes();
+        require __DIR__ . '/../views/lista.php';
+    }
     public function agregarClientes()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nombre   = $_POST['nombre'] ?? '';
-            $email    = $_POST['email'] ?? '';
-            $edad     = $_POST['edad'] ?? '';
-            $altura   = $_POST['altura'] ?? '';
-            $peso     = $_POST['peso'] ?? '';
+            $nombre = $_POST['nombre'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $edad = $_POST['edad'] ?? '';
+            $altura = $_POST['altura'] ?? '';
+            $peso = $_POST['peso'] ?? '';
             $objetivo = $_POST['objetivo'] ?? '';
-            $pass1    = $_POST['pass1'] ?? '';
-            $pass2    = $_POST['pass2'] ?? '';
+            $pass1 = $_POST['pass1'] ?? '';
+            $pass2 = $_POST['pass2'] ?? '';
 
             $this->model->agregarClientes($nombre, $email, $edad, $altura, $peso, $objetivo, $pass1, $pass2);
             header('Location: index.php?accion=listarClientes');
@@ -36,16 +36,14 @@ class clienteController
             require __DIR__ . '/../views/agregar.php';
         }
     }
-
-
     public function editarClientes()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id     = $_POST['id'] ?? '';
+            $id = $_POST['id'] ?? '';
             $nombre = $_POST['nombre'] ?? '';
-            $email  = $_POST['email'] ?? '';
-            $pass1  = $_POST['pass1'] ?? '';
-            $pass2  = $_POST['pass2'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $pass1 = $_POST['pass1'] ?? '';
+            $pass2 = $_POST['pass2'] ?? '';
 
             $result = $this->model->editarClientes($id, $nombre, $email, $pass1, $pass2);
 
@@ -76,7 +74,7 @@ class clienteController
             header('Location: index.php');
             exit;
         }
-    
+
         require __DIR__ . "/../views/eliminar.php";
     }
 }

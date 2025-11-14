@@ -24,7 +24,8 @@ function PDOconect()
   {
     return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
   }
-};
+}
+;
 
 function leerUsuarios()
 {
@@ -41,7 +42,7 @@ function AltaUsuarios($nombre, $email, $edad, $altura, $peso, $objetivo, $pass1,
 
   $pdo = PDOconect();
 
-  if ($nombre === '' || $email === '' || $edad === '' || $altura === '' || $peso  === ''  || $objetivo === '' || $pass1 === '' || $pass2 === '') {
+  if ($nombre === '' || $email === '' || $edad === '' || $altura === '' || $peso === '' || $objetivo === '' || $pass1 === '' || $pass2 === '') {
     echo 'Rellena todos los campos.';
   } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo 'Email no valido.';

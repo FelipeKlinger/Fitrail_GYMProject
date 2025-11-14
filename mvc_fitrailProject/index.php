@@ -5,7 +5,7 @@ require_once __DIR__ . '/controllers/clienteController.php';
 
 $controller = new clienteController($pdo);
 
- 
+
 $accion = $_GET['accion'] ?? 'Location: index.php';
 
 switch ($accion) {

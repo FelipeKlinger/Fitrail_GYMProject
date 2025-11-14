@@ -31,9 +31,6 @@
     }
 
     ?>
-
-
-
     <div class="contenedor">
         <h1>Editar</h1>
 
@@ -51,9 +48,6 @@
             <label>Confirmar contrasenya:</label><br>
             <input type="password" name="password2" value="<?php echo htmlspecialchars($_POST['password2'] ?? ''); ?>">
             <br>
-
-
-
             <?php
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $nombre = trim($_POST['nombre'] ?? '');
